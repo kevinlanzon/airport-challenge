@@ -2,11 +2,11 @@ require 'plane'
 
 describe Plane do
 
-	let(:plane) { Plane.new }
+  let(:plane) { Plane.new }
 
-	it 'has a flying status when created' do
-		expect(plane.status).to eq(true)
-	end
+  it 'has a flying status when created' do
+    expect(plane.status).to eq(true)
+  end
 
   it 'has a flying status when in the air' do
     plane.take_off
