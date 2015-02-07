@@ -1,16 +1,19 @@
 require 'weather'
 
-class WeatherConditions; include Weather; end
+class WeatherCondition; include Weather; end
 
-describe WeatherConditions do
+describe WeatherCondition do
 
-  let(:weatherconditions) { WeatherConditions.new }
+  let(:weathercondition) { WeatherCondition.new }
 
-it 'a plane cannot take off when there is a storm brewing' do
-
+    it 'should know when there is a storm brewing' do
+      allow(weathercondition).to receive(:stormy?) {"There's a storm brewing"}
+      expect(weathercondition.stormy?).to eq "There's a storm brewing"
     end
 
-    it 'a plane cannot land in the middle of a storm' do
+    it 'should know when the weather is sunny' do
+      allow(weathercondition).to receive(:stormy?) {"The weather is sunny today"}
+      expect(weathercondition.stormy?).to eq "The weather is sunny today"
     end
 
 end
