@@ -1,9 +1,14 @@
 require 'airport'
 require 'plane'
+require 'weather'
 
 describe 'The Grand Finale Spec (last spec)' do
 
+  let(:airport) { Airport.new }
+  let(:planes) {6.times.collect { Plane.new }}
+
   it 'all planes can land and all planes can take off' do
+    allow(airport.stormy?).to receive(:stormy?) {"The weather is sunny today"}
   end
 
 end
