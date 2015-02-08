@@ -4,7 +4,7 @@ class Plane
     @flying = true
   end
 
-  def status
+  def status?
     @flying
   end
 
