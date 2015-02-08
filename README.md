@@ -1,4 +1,4 @@
-AIRPORT
+Airport
 =======
 
 [Makers Academy](http://www.makersacademy.com/) week one challenge. 
