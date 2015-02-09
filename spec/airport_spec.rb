@@ -2,34 +2,39 @@ require 'airport'
 
 describe Airport do
 
-  let(:airport) { Airport.new }
-  let(:plane) {double :plane}
+  let(:luton) { Airport.new   }
+  let(:plane) { double :plane }
 
-  context 'Taking Off and Landing' do
+  context 'when created' do
 
-      it 'a plane can land' do
-        expect(airport.plane_count).to eq(0)
-        airport.land_plane(plane)
-        expect(airport.plane_count).to eq(1)
-      end
-
-      it 'a plane can take off' do
-        airport = Airport.new
-        airport.take_off(plane)
-        expect(airport.plane_count).to eq(0)
-      end
+    it 'has no planes' do
+      expect(luton.plane_count).to eq 0
     end
 
-  context 'Air Taffic Control' do
-
-      it 'should know the airport capacity' do
-        expect(airport.capacity).to eq(30)
-      end
-
-      it 'should know a plane cannot land if the airport is full' do
-        airport.capacity.times{airport.land_plane(plane)}
-        expect(airport.clear_for_landing).to be(false)
-      end
+    it 'has a default capacity' do
+      expect(luton.capacity).to eq Airport::DEFAULT_CAPACITY
     end
+  end
+
+  context 'can let a plane take off and land' do
+
+    it 'a plane can land' do
+      allow(plane).to receive(:land!)
+      plane.land!
+      luton.park(plane)
+    end
+
+    it 'accounts for that plane after landing' do
+      allow(plane).to receive(:land!)
+      luton.park(plane)
+      expect(luton.plane_count).to eq 1
+    end
+
+    it 'a plane can take off' do
+      allow(plane).to receive(:take_off!)
+      plane.take_off!
+      expect(luton.plane_count).to eq 0
+    end
+  end
 
 end

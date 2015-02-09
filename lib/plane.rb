@@ -4,20 +4,18 @@ class Plane
     @flying = true
   end
 
-  def status?
-    @flying
-  end
-
   def flying?
     @flying
   end
 
-  def take_off
-    @flying
+  def land!
+    @flying = false
+    self
   end
 
-  def land?
-    @flying
+  def take_off!
+    @flying = true
+    self
   end
 
 end
