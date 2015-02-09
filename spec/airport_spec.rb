@@ -37,4 +37,11 @@ describe Airport do
     end
   end
 
+    context 'Air Taffic Control' do
+
+      it 'should know the airport capacity' do
+        expect(luton.capacity).to eq 20
+      end
+  end
+
 end

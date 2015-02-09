@@ -1,24 +1,31 @@
 require 'airport'
 require 'plane'
-require 'weather'
 
 
-  public
-
-  def land_all_planes(planes)
-    planes.land!
+  def all_planes_take_off!
+    planes.each {|plane| plane.take_off!}
   end
+
+  def land_all_planes!
+    planes.each {|plane| plane.land!}
+  end
+
 
 describe 'the grand finale spec' do
 
   let(:luton) { Airport.new }
   let(:planes) {6.times.collect { Plane.new }}
 
-  it 'all planes can land and all planes can take off' do
-    allow(luton).to receive(:stormy?) {"The weather is sunny today"}
-    expect(luton.plane_count).to eq(0)
-    luton.land_all_planes(:planes)
-    expect(luton.plane_count).to eq(6)
+  it '6 planes can take off' do
+  allow(luton).to receive(:stormy?) {false}
+  all_planes_take_off!
+  planes.each { |plane| expect(plane).to be_flying }
+  end
+
+  it '6 planes can land' do
+  allow(luton).to receive(:stormy?) {false}
+  land_all_planes!
+  planes.each { |plane| expect(plane).not_to be_flying }
   end
 
 end
