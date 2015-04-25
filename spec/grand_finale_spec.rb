@@ -16,19 +16,17 @@ describe 'the grand finale spec' do
   let(:planes) {6.times.collect { Plane.new }}
 
   it '6 planes can take off' do
-  allow(luton).to receive(:stormy?) {"The weather is sunny today"}
-  all_planes_take_off!
-  planes.each { |plane| expect(plane).to be_flying }
+    allow(luton).to receive(:stormy?) {"The weather is sunny today"}
+    all_planes_take_off!
+    planes.each { |plane| expect(plane).to be_flying }
   end
 
   it '6 planes can land' do
-  allow(luton).to receive(:stormy?) {"The weather is sunny today"}
-  land_all_planes!
-  planes.each { |plane| expect(plane).not_to be_flying }
+    allow(luton).to receive(:stormy?) {"The weather is sunny today"}
+    land_all_planes!
+    planes.each { |plane| expect(plane).not_to be_flying }
   end
-
 end
-
 
 # # grand final
 # # Given 6 planes, each plane must land. When the airport is full, every plane must take off again.

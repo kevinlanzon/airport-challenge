@@ -26,5 +26,4 @@ describe Plane do
   it 'has a flying status when in the air' do
     expect(plane).to be_flying
   end
-
 end

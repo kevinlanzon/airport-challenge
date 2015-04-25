@@ -9,5 +9,4 @@ module Weather
     else @stormy = "The weather is sunny today"
     end
   end
-
 end

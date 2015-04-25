@@ -19,5 +19,4 @@ class Airport
   def capacity
     DEFAULT_CAPACITY
   end
-
 end
