@@ -5,7 +5,7 @@ Airport
 
 The Airport Challenge is to write software to control the flow of planes at an airport. The task is to write required classes and respective methods.
 
-- The project uses Test Driven Design(TDD) with Rspec.
+- The project uses Test Driven Design (TDD) with Rspec.
 
 - Class Responsibilites Collaborators (CRC)
 
